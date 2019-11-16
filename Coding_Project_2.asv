@@ -2,19 +2,20 @@
 % Alexander Dahlmann
 % EE599 - Coding Project 2
 %
-function Coding_Project_2(~)
-datRaw = fopen('data.txt','r');
-dat=fscanf(datRaw, '%d);
-% for j=2:1:167 
-%     for i=7:1:167
-%         if datRaw(j,i)=='-'
-%             sign = -1;
-%         else
-%             sign = 1;
-%         end
-end
-fclose('data.txt');
-yr = 1850:1:2015;
 
-
+a = readtable('data.txt');
+dat = (table2array((a(:,:))));
+hold on
+s=1;
+% for x=1:1:166
+%     for y=2:1:13
+%         dat_Vec(s)=dat(x,y); 
+%         s=s+1;
+%     end
+% end
+% x_ax=1850:(1/12):(2015+(11/12));
+x_ax=1:1:166;
+for x=1:1:166
+    
+scatter(x_ax(x),dat_Vec(x),25)
 end
