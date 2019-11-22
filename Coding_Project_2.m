@@ -2,7 +2,8 @@
 % Alexander Dahlmann
 % EE599 - Coding Project 2
 %
-%function [] = Temp_Dat(~)
+clear, clc
+
 tec = fopen('data.txt','r');
 datr=fscanf(tec,'%f');
 fclose(tec);
@@ -23,24 +24,23 @@ for y_d =1:1:166
 end
 
 hold on
+lambda = 0.44;
+w=lambda+zeros(1,166);
 
 x_ax=dat(1,1):1:dat(end,1);
 y_vec = dat(:,14).';
 
-% bs_dat1 = zeros(bootstrap1);
-% for d=1:1:bootstrap1
-%    random = rand(1,2);
-%    random(1) = round(random(1)*166);
-%    random(2) = round(random(2)*14);
-%    bs_dat1(d)= dat(random(2),random(1));
-%    
-% end
-% 
-% for x=1:1:bootstrap1
-% scatter(bs_test(x),bs_dat1(x),25,'r','filled')
-% end
-
+s=1;
+ne_iso=zeros[x_d y_d ;];
+st=[1 1];
+for y_d =1:1:166
+    for x_d=1:1:14
+    near_iso = @(y)(0.5*sum(dat(y_d,x_d)-y(1))^2)+lambda*sum(y(1)-y(2));
+    ss = fminsearch(near_iso,st)
+    ne_iso(x_d y_d 1) = ss(1);
+    ne_iso(x_d y_d 2) = ss(2);
+    end
+end
 for x=1:1:166
 scatter(x_ax(x),y_vec(x),25,'r','filled')
 end
-%end
