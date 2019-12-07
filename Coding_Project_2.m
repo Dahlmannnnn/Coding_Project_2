@@ -33,7 +33,7 @@ for a=1:1:m-1
 
 y = y_vec(a);
 start=[beta(a) beta(a+1)];
-out= fminsearch(@minimization,start);
+out= fminsearch(@minimization_ISO,start);
 beta(a)=out(1);
 beta(a+1)=out(2);
 
@@ -45,7 +45,7 @@ for a=1:1:m-2
     
 y = y_vec(a);
 start=[beta2(a) beta2(a+1) beta2(a+2)];
-out= fminsearch(@minimization2,start);
+out= fminsearch(@minimization_Conv,start);
 beta2(a)=out(1);
 beta2(a+1)=out(2);
 
@@ -72,12 +72,12 @@ hold off
 
 %% Additional Functions 
 
-function obj=minimization(start)
+function obj=minimization_ISO(start)
 global y
 obj =0.5*((y-start(1))^2)+0.44*(abs(start(1)-start(2)));
 end
 
-function obj=minimization2(start)
+function obj=minimization_Conv(start)
 global y
 obj =0.5*((y-start(1))^2)+0.44*(abs(start(1)-2*start(2)+start(3)));
 end
