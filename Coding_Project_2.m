@@ -52,7 +52,7 @@ beta2(a+1)=out(2);
 end
 
 %% Plots
-subplot(2,1,1)
+subplot(1,2,1)
 hold on
 for x=1:1:166
 scatter(x_ax(x),y_vec(x),25,'r','filled')
@@ -61,7 +61,7 @@ plot(x_ax,beta,'b')
 ylim([-0.6 0.9])
 hold off
 
-subplot(2,1,2)
+subplot(1,2,2)
 hold on
 for x=1:1:166
 scatter(x_ax(x),y_vec(x),25,'r','filled')
