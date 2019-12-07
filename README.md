@@ -11,6 +11,4 @@ This is intended to be used for the NAU class EE599 - Machine Learning class as 
 
 The initial report for this assignmnet can be found [Here](https://github.com/Dahlmannnnn/Coding_Project_2/blob/master/Coding%20Project%202%20wk2%20Alexander%20Dahlmann.pdf).
 
-This file can be run by activating MATLAB and running the .m file in the repository.
-
-There is currently no functional makefile for this project.
+This file can be run by activating MATLAB and running the .m file in the repository, or by running the makefile.
